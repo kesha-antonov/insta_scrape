@@ -112,7 +112,7 @@ module InstaScrape
   #user info scraper method
   def self.scrape_user_info(username)
     visit "https://www.instagram.com/#{username}/"
-    @image = page.find('article header div img')["src"]
+    @image = page.find('section header div img')["src"]
     within("header") do
       post_count_html = page.find('span', :text => "posts", exact: true)['innerHTML']
       @post_count = get_span_value(post_count_html)
